@@ -1,0 +1,7 @@
+<h2>{{category.name}}</h2>
+<app-category-banner *ngIf="catBanner" [catBanner]="catBanner"></app-category-banner>
+<div class="row">
+  <div class="col-xs-3" *ngFor="let product of cat_products">
+    <app-product-item [product]="product"></app-product-item>
+  </div>
+</div>

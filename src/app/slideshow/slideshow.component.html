@@ -1,0 +1,10 @@
+<h2>Slideshow</h2>
+<div class="carousel-container text-center">
+  <igx-carousel #carousel>
+      <igx-slide *ngFor="let slide of slides">
+          <div class="image-container">
+              <img [src]="slide" class="img-responsive"/>
+          </div>
+      </igx-slide>
+  </igx-carousel>
+</div>
