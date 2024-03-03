@@ -3,11 +3,13 @@ import { Product } from './product.model';
 import { Category } from './cat.model';
 import { FooterIcons } from './footet-icons.model';
 import { CatBanner } from './cat-banner.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsServiceService {
+  catIdChanged = new Subject<boolean>();
 
   catBanners: CatBanner[] = [
     new CatBanner('1', 'https://img.fruugo.com/product/7/92/161822927_max.jpg'),
@@ -29,7 +31,7 @@ export class ProductsServiceService {
   cats: Category[] = [
     new Category('1', 'Kids'),
     new Category('2', 'Accessorices'),
-    new Category('3', 'Collections'),
+    new Category('3', 'Collections')
   ]
 
   products: Product[] = [
@@ -47,6 +49,9 @@ export class ProductsServiceService {
 
   getCats() {
     return this.cats.slice();
+  }
+  getCatById(id: string) {
+    return this.cats.find((cat) => cat.id === id);
   }
   getLastProduct() {
     const lastProducts: Product[] = [];

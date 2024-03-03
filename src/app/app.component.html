@@ -14,16 +14,7 @@
       <app-slideshow></app-slideshow>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <app-latest-products></app-latest-products>
-    </div>
-  </div>
-  <div class="row" *ngFor="let cat of cats">
-    <div class="col-xs-12">
-      <app-cateogry [category]="cat" [catId]="cat.id"></app-cateogry>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
   <div class="row">
     <div class="col-xs-12">
       <app-footer></app-footer>

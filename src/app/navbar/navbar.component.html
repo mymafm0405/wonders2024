@@ -1,2 +1,7 @@
 <h2>Navigation</h2>
-<app-nav-item></app-nav-item>
+<div class="row">
+  <div class="col-xs-1">
+    <a [routerLink]="['/']"><h4>Home</h4></a>
+  </div>
+  <app-nav-item *ngFor="let navItem of navItems" [navItem]="navItem"></app-nav-item>
+</div>

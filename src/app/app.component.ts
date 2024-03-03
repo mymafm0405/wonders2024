@@ -8,11 +8,10 @@ import { ProductsServiceService } from './shared/products-service.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  cats: Category[] = [];
 
-  constructor(private productsService: ProductsServiceService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.cats = this.productsService.getCats();
+
   }
 }

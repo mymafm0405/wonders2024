@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ProductsServiceService } from '../../shared/products-service.service';
+import { Category } from '../../shared/cat.model';
 
 @Component({
   selector: 'app-nav-item',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './nav-item.component.css'
 })
 export class NavItemComponent {
+  @Input() navItem: Category;
 
+  constructor(private productsService: ProductsServiceService) {}
 }
