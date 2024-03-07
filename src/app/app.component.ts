@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from './shared/cat.model';
-import { ProductsServiceService } from './shared/products-service.service';
+import { ActivatedRoute, Params } from '@angular/router';
+import { UsersService } from './shared/users.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +8,22 @@ import { ProductsServiceService } from './shared/products-service.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+  isLoginPage = false;
+  isAdminLogin = false;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute, private usersService: UsersService) {}
 
   ngOnInit(): void {
+    this.usersService.loginPage.subscribe(
+      (loginPage: boolean) => {
+        this.isLoginPage = loginPage;
+      }
+    )
 
+    this.usersService.loginStatus.subscribe(
+      (status: boolean) => {
+        this.isAdminLogin = status;
+      }
+    )
   }
 }

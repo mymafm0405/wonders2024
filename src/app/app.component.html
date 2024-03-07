@@ -9,7 +9,7 @@
       <app-navbar></app-navbar>
     </div>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="!isLoginPage">
     <div class="col-xs-12">
       <app-slideshow></app-slideshow>
     </div>

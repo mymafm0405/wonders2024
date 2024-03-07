@@ -43,7 +43,7 @@ export class ProductsServiceService {
   constructor() { }
 
   getProductsForCat(cat_id: string) {
-    const catProducts = this.products.filter((product) => { return product.cat_id === cat_id});
+    const catProducts = this.products.filter((product) => { return product.catId === cat_id});
     return catProducts;
   }
 
@@ -56,7 +56,7 @@ export class ProductsServiceService {
   getLastProduct() {
     const lastProducts: Product[] = [];
     this.cats.forEach((cat) => {
-      const catProducts = this.products.filter((product) => {return product.cat_id === cat.id})
+      const catProducts = this.products.filter((product) => {return product.catId === cat.id})
       lastProducts.push(catProducts[catProducts.length - 1]);
     });
     return lastProducts;
@@ -73,5 +73,9 @@ export class ProductsServiceService {
   getCatBanner(catId: string) {
     const catBanner = this.catBanners.find(catB => catB.catId === catId);
     return catBanner;
+  }
+
+  getProductById(id: string) {
+    return this.products.find((product) => product.id === id);
   }
 }

@@ -1,0 +1,14 @@
+<div class="row text-center">
+  <div class="col-xs-12">
+    <h2>Your Cart</h2>
+  </div>
+</div>
+<div class="row" *ngFor="let cartItem of cartItems">
+  <app-cart-item [cartItem]="cartItem"></app-cart-item>
+</div>
+<h3 *ngIf="cartItems.length > 0">Total price: {{totalPrice}}</h3>
+<div class="row" *ngIf="cartItems.length === 0">
+  <div class="col-xs-12 no-items">
+    <h3>No items in your cart...</h3>
+  </div>
+</div>
