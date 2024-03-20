@@ -12,6 +12,14 @@ export class NavbarComponent implements OnInit {
   constructor(private productsService: ProductsServiceService) {}
 
   ngOnInit(): void {
-    this.navItems = this.productsService.getCats();
+    this.productsService.fetchCats();
+
+    this.productsService.catChanged.subscribe(
+      (status: boolean) => {
+        if (status) {
+          this.navItems = this.productsService.getCats();
+        }
+      }
+    )
   }
 }

@@ -1,19 +1,26 @@
-<h1>Wonders 2024</h1>
-<div class="row text-center">
+<img src="../../assets/header2.jpeg" alt="WondersQatar 2024" class="img-responsive header">
+<div class="row text-center top-nav">
   <div class="col-xs-2" *ngIf="isAdminLogin">
-    <h4><a routerLink="/cpadmin">CpAdmin</a></h4>
+    <a routerLink="/cpadmin">CpAdmin</a>
   </div>
   <div class="col-xs-2">
-    <h4><a routerLink="/contactus">Contact Us</a></h4>
+    <a routerLink="/contactus">Contact Us</a>
   </div>
   <div class="col-xs-2">
-    <h4><a routerLink="/aboutus">About Us</a></h4>
+    <a routerLink="/aboutus">About Us</a>
   </div>
   <div class="col-xs-2">
-    <h4><a routerLink="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart (<span class="cart-number">{{ cartItems }}</span>)</a></h4>
+    <a routerLink="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart (<span class="cart-number">{{ cartItems }}</span>)</a>
+  </div>
+  <div class="col-xs-2" *ngIf="isAdminLogin">
+    <a routerLink="/orders"><span class="glyphicon glyphicon-briefcase"></span> Orders (<span class="cart-number">{{ orders }}</span>)</a>
   </div>
   <div class="col-xs-2">
-    <h4><a routerLink="/login/login" (click)="onLoginButton()">{{ isAdminLogin ? 'LogOut' : 'Sign-In'}}</a></h4>
+    <a routerLink="/login/login" (click)="onLoginButton()">{{ isAdminLogin ? 'LogOut' : 'Sign-In'}}</a>
   </div>
 </div>
-<h3>Banner</h3>
+<div class="row banner-row">
+  <div class="col-xs-12">
+    <img [src]="mainBannerUrl" class="banner" alt="Main banner">
+  </div>
+</div>

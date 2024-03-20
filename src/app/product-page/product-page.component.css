@@ -1,0 +1,53 @@
+.price {
+  background-color: #6cbb6c;
+  color: #333;
+  text-align: right;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid white;
+}
+.add-to-cart {
+  width: 100%;
+  background-color: #f6bd7b;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.add-to-cart:hover {
+  background-color: #f9a8be;
+}
+a {
+  cursor: pointer;
+}
+.desc {
+  background-color: white;
+  min-height: 150px;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+.main-photo {
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  padding: 10px;
+  box-shadow: 5px 5px 20px #333;
+}
+.small-photo {
+  border-radius: 10px;
+  border: 1px solid #333;
+  padding: 10px;
+  box-shadow: 5px 5px 20px #333;
+  max-height: 130px;
+  width: 100%;
+  cursor: pointer;
+}
+.left-photo {
+  margin-bottom: 20px;
+}
+.edit {
+  width: 100%;
+}

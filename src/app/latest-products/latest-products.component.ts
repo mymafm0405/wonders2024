@@ -13,5 +13,14 @@ export class LatestProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.latestProduct = this.productsService.getLastProduct();
+    console.log(this.latestProduct);
+    this.productsService.productsChanged.subscribe(
+      (status: boolean) => {
+        if (status) {
+          this.latestProduct = this.productsService.getLastProduct();
+          console.log(this.latestProduct);
+        }
+      }
+    )
   }
 }

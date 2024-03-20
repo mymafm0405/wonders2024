@@ -1,1 +1,61 @@
-cp admin
+<!-- <form (ngSubmit)="onSave(f)" #f="ngForm">
+  <input type="text" class="form-control" placeholder="Title" name="title" ngModel>
+  <input type="text" class="form-control" placeholder="Content" name="content" ngModel>
+  <button class="btn btn-danger">Save</button>
+</form> -->
+<div class="row">
+  <div class="col-xs-6 my-style" style="background-color: antiquewhite;">
+    <h3>Add category</h3>
+    <form (ngSubmit)="onAddCat(catF)" #catF="ngForm">
+      <input type="text" class="form-control" placeholder="Category name" name="name" ngModel>
+      <h4>Category banner</h4>
+      <input type="file" class="form-control" #banner name="banner" ngModel>
+      <button class="btn btn-danger" [disabled]="loading">{{loading ? 'saving...' : 'Add category'}}</button>
+    </form>
+  </div>
+  <div class="col-xs-6 my-style" style="background-color: blanchedalmond;">
+    <h3>Add product</h3>
+    <form (ngSubmit)="onAddProduct(productF)" #productF="ngForm">
+      <input type="text" class="form-control" placeholder="Product name" name="name" ngModel>
+      <select name="catId" class="form-control" ngModel>
+        <option *ngFor="let cat of cats" [value]="cat.id">{{cat.name}}</option>
+      </select>
+      <input type="text" class="form-control" placeholder="Description" name="desc" ngModel>
+      <input type="number" class="form-control" placeholder="Price" name="price" ngModel>
+      <input type="file" name="mainImage" class="form-control" ngModel #myImage>
+      <button class="btn btn-danger" [disabled]="loading">{{loading ? 'saving...' : 'Save product'}}</button>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6 my-style" style="background-color: gainsboro;">
+    <h3>Update Main banner</h3>
+    <form (ngSubmit)="onUpdateMainBanner()" #mainBannerF="ngForm">
+      <input type="file" class="form-control" #mainBanner ngModel>
+      <button class="btn btn-danger" [disabled]="loading">{{loading ? 'saving...' : 'Update main banner'}}</button>
+    </form>
+  </div>
+  <div class="col-xs-6 my-style" style="background-color: floralwhite;">
+    <h3>Slides (Height: 500px)</h3>
+    <form (ngSubmit)="onUpdateSlide1()">
+      <h4>Slide 1: <input type="file" class="form-control" #slide1 ngModel></h4>
+      <button class="btn btn-danger" [disabled]="loading">{{loading ? 'saving...' : 'Update slide1'}}</button>
+    </form>
+    <form (ngSubmit)="onUpdateSlide2()">
+      <h4>Slide 2: <input type="file" class="form-control" #slide2 ngModel></h4>
+      <button class="btn btn-danger" [disabled]="loading">{{loading ? 'saving...' : 'Update slide2'}}</button>
+    </form>
+    <form (ngSubmit)="onUpdateSlide3()">
+      <h4>Slide 3: <input type="file" class="form-control" #slide3 ngModel></h4>
+      <button class="btn btn-danger" [disabled]="loading">{{loading ? 'saving...' : 'Update slide3'}}</button>
+    </form>
+    <form (ngSubmit)="onUpdateSlide4()">
+      <h4>Slide 4: <input type="file" class="form-control" #slide4 ngModel></h4>
+      <button class="btn btn-danger" [disabled]="loading">{{loading ? 'saving...' : 'Update slide4'}}</button>
+    </form>
+    <form (ngSubmit)="onUpdateSlide5()">
+      <h4>Slide 5: <input type="file" class="form-control" #slide5 ngModel></h4>
+      <button class="btn btn-danger" [disabled]="loading">{{loading ? 'saving...' : 'Update slide5'}}</button>
+    </form>
+  </div>
+</div>

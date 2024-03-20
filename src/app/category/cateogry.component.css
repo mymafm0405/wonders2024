@@ -1,0 +1,14 @@
+.cat-name {
+  background-color: #fad0a0;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  box-shadow: 5px 5px 20px #333;
+}
+.glyphicon {
+  font-size: 22px;
+}
+.delete {
+  color: red;
+}

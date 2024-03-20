@@ -1,6 +1,9 @@
 <div class="row my-nav">
-  <div class="col-xs-1">
-    <a [routerLink]="['/']"><h4>Home</h4></a>
+  <div class="col-xs-2" *ngIf="navItems.length === 0"><h4>Loading...</h4></div>
+  <div *ngIf="navItems.length > 0">
+    <app-nav-item *ngFor="let navItem of navItems" [navItem]="navItem"></app-nav-item>
   </div>
-  <app-nav-item *ngFor="let navItem of navItems" [navItem]="navItem"></app-nav-item>
+  <div class="col-xs-2">
+    <a [routerLink]="['/']">الصفحة الرئيسية</a>
+  </div>
 </div>

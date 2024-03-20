@@ -1,7 +1,19 @@
 <div class="product-item">
-  <img [src]="product.images[0]" [alt]="product.name" class="img-responsive">
-  <h3>{{product.name}}</h3>
-  <p>{{product.desc}}</p>
-  <h4>{{product.price}}</h4>
-  <button class="btn btn-success" (click)="onAddToCart()">Add to cart</button>
+  <a [routerLink]="['/product', product.id, product.catId]">
+    <img
+      *ngIf="product.images"
+      [src]="product.images[0]"
+      [alt]="product.name"
+      class="img-responsive"
+    />
+    <h4 *ngIf="!product.images && !loading">No images</h4>
+    <h4 *ngIf="loading">loading...</h4>
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.desc }}</p>
+    <h4 class="price">{{ product.price }} QAR</h4>
+  </a>
+  <button class="btn add-to-cart" (click)="onAddToCart()">Add to cart</button>
+  <app-edit-product [product]="product" *ngIf="isAdmin"></app-edit-product>
+  <app-delete-product [product]="product" *ngIf="isAdmin"></app-delete-product>
+
 </div>

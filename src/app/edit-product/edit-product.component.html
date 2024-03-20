@@ -1,0 +1,12 @@
+<button class="btn btn-default" (click)="onEdit()">Edit</button>
+<form (ngSubmit)="onSave()" #editF="ngForm" *ngIf="showEdit">
+  <input type="text" class="form-control" name="name" placeholder="Product name" ngModel>
+  <input type="text" class="form-control" name="desc" placeholder="Description" ngModel>
+  <h4>Image 1:</h4>
+  <input type="file" class="form-control" #img1>
+  <h4>Image 2:</h4>
+  <input type="file" class="form-control" #img2>
+  <h4>Image 3:</h4>
+  <input type="file" class="form-control" #img3>
+  <button class="btn btn-success" [disabled]="loading">Save edit</button>
+</form>

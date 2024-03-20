@@ -27,13 +27,22 @@ import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductPageComponent } from './product-page/product-page.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderItemComponent } from './orders/order-item/order-item.component';
+import { OrderProductComponent } from './orders/order-product/order-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { DeleteProductComponent } from './delete-product/delete-product.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'category/:id', component: CatPageComponent},
+  {path: 'product/:id/:catId', component: ProductPageComponent},
   {path: 'login/:login', component: LoginComponent},
   {path: 'cpadmin', component: CpadminComponent},
   {path: 'cart', component: CartComponent},
+  {path: 'orders', component: OrdersComponent},
   {path: 'contactus', component: ContactComponent},
   {path: 'aboutus', component: AboutComponent},
 ]
@@ -58,7 +67,13 @@ const appRoutes: Routes = [
     CartComponent,
     CartItemComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    ProductPageComponent,
+    OrdersComponent,
+    OrderItemComponent,
+    OrderProductComponent,
+    EditProductComponent,
+    DeleteProductComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -66,6 +81,7 @@ const appRoutes: Routes = [
     IgxCarouselModule,
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

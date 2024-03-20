@@ -1,1 +1,2 @@
-<img [src]="catBanner.imagePath" alt="category banner" style="max-height: 200px;">
+<img *ngIf="catBanner.imagePath" [src]="catBanner.imagePath" alt="category banner" style="min-height: 300px;">
+<h4 *ngIf="!catBanner.imagePath">No banner for this category</h4>

@@ -1,3 +1,16 @@
 .my-nav {
-  margin-bottom: 100px;
+  margin-bottom: 40px;
+}
+a {
+  color: #474747;
+  background-color: #ffd099;
+  display: block;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+a:hover {
+  text-decoration: none;
+  background-color: #ff9ec2;
+  color: white;
 }

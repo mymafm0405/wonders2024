@@ -14,5 +14,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.cats = this.productsService.getCats();
+    this.productsService.catChanged.subscribe(
+      (status: boolean) => {
+        if (status) {
+          this.cats = this.productsService.getCats();
+        }
+      }
+    )
   }
 }

@@ -23,6 +23,7 @@
     "@igniteui/material-icons-extended": "^3.0.0",
     "bootstrap": "^3.4.1",
     "fflate": "^0.8.1",
+    "firebase": "^10.8.1",
     "igniteui-angular": "^17.1.1",
     "minireset.css": "~0.0.4",
     "rxjs": "~7.8.0",

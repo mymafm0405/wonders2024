@@ -1,7 +1,22 @@
-<h2>{{category.name}}</h2>
+<h2 class="cat-name">{{category.name}}
+  <a (click)="onEdit()"><span *ngIf="isAdminLogin" class="glyphicon glyphicon-pencil"></span></a>
+  <a (click)="onDelete()" class="delete"><span *ngIf="isAdminLogin" class="glyphicon glyphicon-trash"></span></a>
+</h2>
+<form *ngIf="showEditForm" (ngSubmit)="onUpdate(editF)" #editF="ngForm">
+  <input type="text" class="form-control" name="name" [value]="category.name" ngModel>
+  <h4>Category banner</h4>
+  <input type="file" class="form-control" #catBannerImage>
+  <button class="btn btn-success">Update</button>
+</form>
 <app-category-banner *ngIf="catBanner" [catBanner]="catBanner"></app-category-banner>
-<div class="row">
+<div class="row" *ngIf="catProducts.length > 0">
   <div class="col-xs-3" *ngFor="let product of catProducts">
     <app-product-item [product]="product"></app-product-item>
+  </div>
+</div>
+<div class="row" *ngIf="catProducts.length === 0">
+  <div class="col-xs-12">
+    <h3 *ngIf="loading">Loading products...</h3>
+    <h3 *ngIf="!loading && catProducts.length === 0">No products found...</h3>
   </div>
 </div>

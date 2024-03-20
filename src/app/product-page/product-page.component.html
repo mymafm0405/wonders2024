@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-xs-8">
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="row left-photo" *ngFor="let imgUrl of productImages">
+          <div class="col-xs-12">
+            <a (click)="onImgClick(imgUrl)"><img [src]="imgUrl" class="img-thumbnail small-photo" alt="photo"></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-9">
+        <img [src]="activeUrl" class="img-thumbnail main-photo" alt="photo">
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <h2 style="color: white;">{{currentProduct.name}}</h2>
+    <h4 class="desc">{{currentProduct.desc}}</h4>
+    <h4><span class="price">{{currentProduct.price}} QAR</span></h4>
+    <button class="btn btn-success add-to-cart" (click)="onAddToCart()">Add to cart</button>
+    <app-edit-product *ngIf="isAdmin" [product]="currentProduct"></app-edit-product>
+    <app-delete-product [product]="currentProduct" *ngIf="isAdmin"></app-delete-product>
+  </div>
+</div>
+<h3>Similar products are here</h3>
+<div class="row">
+  <div class="col-xs-3" *ngFor="let product of catProducts">
+    <app-product-item [product]="product"></app-product-item>
+  </div>
+</div>

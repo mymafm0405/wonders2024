@@ -12,6 +12,14 @@ export class SlideshowComponent implements OnInit {
   constructor(private productsService: ProductsServiceService) {}
 
   ngOnInit(): void {
-    this.slides = this.productsService.getSlides();
+    this.productsService.fetchSlides();
+    this.productsService.slidesChanged.subscribe(
+      (status: boolean) => {
+        console.log('hello');
+        if (status) {
+          this.slides = this.productsService.getSlides();
+        }
+      }
+    )
   }
 }

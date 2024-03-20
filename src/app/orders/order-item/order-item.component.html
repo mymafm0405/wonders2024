@@ -1,0 +1,39 @@
+<div class="row order">
+  <div class="col-xs-12">
+    <div class="row">
+      <div class="col-xs-1">
+        <h2>{{ indexNumber }}</h2>
+      </div>
+      <div class="col-xs-3">
+        <h3>Customer Data</h3>
+        <h4><span>Name:</span> {{ order.customer.name }}</h4>
+        <h4><span>Address:</span> {{ order.customer.address }}</h4>
+        <h4><span>Phone:</span> {{ order.customer.phone }}</h4>
+      </div>
+      <div class="col-xs-6">
+        <h3>Order data</h3>
+        <app-order-product
+          *ngFor="let item of order.items"
+          [item]="item"
+        ></app-order-product>
+      </div>
+      <div class="col-xs-2">
+        <button class="btn btn-danger" (click)="onDecline()" [disabled]="loading || order.status === 'declined'">Decline</button>
+        <button class="btn btn-success" (click)="onApprove()" [disabled]="loading || order.status === 'approved'">Approve</button>
+        <h3>Total</h3>
+        <h2 style="color: #007bff">{{ order.total }} QAR</h2>
+        <h4 style="color: red; font-weight: bold">(Status)</h4>
+        <h4
+          [ngClass]="{
+            red: order.status === 'declined',
+            orange: order.status === 'pending',
+            green: order.status === 'approved'
+          }"
+        >
+          {{ order.status }}
+        </h4>
+        <button class="btn btn-default" style="color: red;" (click)="onDelete()">Delete this order</button>
+      </div>
+    </div>
+  </div>
+</div>

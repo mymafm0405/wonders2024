@@ -11,7 +11,7 @@ export class UsersService {
   isAdminLogin = false;
 
   users: User[] = [
-    new User('1', 'Admin', 'admin', '123', 'admin')
+    new User('1', 'Admin', 'admin', 'WoQa2024', 'admin')
   ]
 
   constructor() {}
